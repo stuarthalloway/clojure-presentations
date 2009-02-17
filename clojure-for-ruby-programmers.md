@@ -1,5 +1,26 @@
-h1. Page 1
+h1. Clojure for Java Programmers
 
+* Stuart Halloway
+* stu@thinkrelevance.com
 
-h1. Page 2
+h1. Why Clojure?
+
+h1. Elegance
+
+h1. Sequence Library
+
+h1. Functional Programming
+
+h1. Concurrency
+
+h1. Java Interop
+
+h1. Quick Start
+
+h1. Interactive Environment 
+
+h2. irb
+
+h2. REPL
+
 

@@ -1,0 +1,4 @@
+desc "build the slideshow"
+task :default do
+  sh "slideshow -o build clojure-for-ruby-programmers.md"
+end
