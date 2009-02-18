@@ -244,7 +244,7 @@ h1. What is a Sequence?
 h1. first / rest / cons
 
 <pre> 
-<code class="clojure"> 
+<code class="clojure">
 (first [1 2 3])
 -> 1
 (rest [1 2 3])
@@ -260,7 +260,7 @@ h1. Sequence Comprehension
 h1. Sequence Comprehension Example
 
 <pre> 
-<code class="clojure">  
+<code class="clojure">
 (set! *print-length* 5)
 5
 (for [file "ABCDEFGH" rank (range 1 9)] (str file rank))
@@ -272,9 +272,21 @@ h1. Sequence Comprehension Example
 
 h1. Seq-ables
 
-h1. Lazy and Infinite
+h1. Seq-able Examples
 
-h1. Realization
+<pre> 
+<code class="clojure">
+(map #(.getName %) (.listFiles (java.io.File. ".")))
+-> (".git" "build" "clojure-for-ruby-programmers.maruku" 
+    "footer.html.erb" "gradient.svg.erb" ...) 
+(line-seq (reader (java.io.File. "rakefile")))
+-> ("desc \"build the slideshow\"" 
+     "" 
+     "task :slideshow do" 
+     "  sh \"slideshow -v -o build clojure-for-ruby-programmers.maruku\"" 
+     "end" ...)
+</code> 
+</pre>
 
 h1. Functional Programming
 
@@ -290,7 +302,36 @@ h1. Recurrences
 
 h1. recur
 
+h1. recur Example
+
+<pre> 
+<code class="clojure">
+; from stactrace.clj, by Stuart Sierra
+(defn print-cause-trace
+  "Like print-stack-trace but prints chained exceptions (causes)."
+  ([tr] (print-cause-trace tr nil))
+  ([tr n]
+     (print-stack-trace tr n)
+     (when-let [cause (.getCause tr)]
+       (print "Caused by: " )
+       (recur cause n))))
+</code> 
+</pre>
+
 h1. Laziness
+
+h1. Lazy Example
+
+<pre>
+<code class="clojure">
+(defn lazy-cons-fibo []
+  ((fn fib [a b] 
+     (lazy-cons a (fib b (+ a b)))) 
+   0 1)) 
+</code> 
+</pre>
+
+h1. Realization
 
 h1. Memoization
 
@@ -299,6 +340,41 @@ h1. Concurrency
 h1. Software Transactional Memory
 
 h1. Unified Update Model
+
+h1. Update Functions
+
+<table>
+  <thead>
+    <th>Update Mechanism</th>
+    <th>Refs</th>
+    <th>Atoms</th>
+    <th>Agents</th>
+  </thead>
+  <tr>
+    <td>pure function application</td>
+    <td><code>alter</code></td>
+    <td><code>swap!</code></td>
+    <td><code>send</code></td>
+  </tr>
+  <tr>
+    <td>pure function (commutative)</td>
+    <td><code>commute</code></td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>pure function (blocking)</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td><code>send-off</code></td>
+  </tr>
+  <tr>
+    <td>setter</td>
+    <td><code>ref-set</code></td>
+    <td><code>reset!</code></td>
+    <td>N/A</td>
+  </tr>
+</table>
 
 h1. Example: Snake Game
 
@@ -325,7 +401,56 @@ h1. Ruby Inspired Libraries
 
 h1. Compojure
 
+h1. Compojure Example: Servlet
+
+<pre>
+<code class="clojure">
+(defservlet snippet-servlet
+  (GET "/" 
+     (new-snippet))
+
+  (GET "/:id"
+     (show-snippet (route :id)))
+
+  (POST "/"
+    (create-snippet (:body params))))	
+</code> 
+</pre>
+
+
+h1. Compojure Example. Handlers
+
+<pre>
+<code class="clojure">
+(defn new-snippet []
+  (layout "Create a Snippet"
+    (form-to [POST "/"]
+      (text-area {:rows 20 :cols 73} "body")
+      [:br]
+      (submit-button "Save"))))
+
+(defn create-snippet [body]
+  (if-let [id (insert-snippet body)]
+    (redirect-to (str "/" id))
+    (redirect-to "/")))
+</code> 
+</pre>
+
 h1. clj-record
+
+<pre>
+<code class="clojure">
+(cljrec/init-model
+  (has-many products)
+  (validates name "empty!" #(not (empty? %)))
+  (validates name "starts with whitespace!"
+    #(not (re-find #"^\s" %)))
+  (validates name "ends with whitespace!" 
+    #(not (re-find #"\s$" %)))
+  (validates grade "negative!" 
+    #(or (nil? %) (>= % 0))))
+</code> 
+</pre>
 
 h1. Clojure's Strengths
 
@@ -338,4 +463,4 @@ h1. Clojure's Strengths
 
 h1. The Book
 
-[http://www.pragprog.com/titles/shcloj/programming-clojure](http://www.pragprog.com/titles/shcloj/programming-clojure)
+<a href="http://www.pragprog.com/titles/shcloj/programming-clojure">http://www.pragprog.com/titles/shcloj/programming-clojure</a>
