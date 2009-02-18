@@ -1,0 +1,228 @@
+h1. Clojure for Java Programmers
+
+* Stuart Halloway
+* stu@thinkrelevance.com
+
+<div style="font-size: 50%;">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Clojure for Ruby Programmers</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://github.com/stuarthalloway/clojure-for-ruby-programmers" property="cc:attributionName" rel="cc:attributionURL">Stuart Halloway</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
+</div>
+
+h1. Why Clojure?
+
+h1. Elegance
+
+h1. Sequence Library
+
+h1. Functional Programming
+
+h1. Concurrency
+
+h1. Java Interop
+
+h1. Quick Start
+
+h1. Interactive Environment 
+
+<h2 class="ruby-concept">irb</h2>
+
+<h2 class="clojure-concept">REPL</h2>
+
+h1. Collections
+
+<h2 class="ruby-concept">Enumerable</h2>
+
+<h2 class="clojure-concept">Sequence</h2>
+
+h1. select / filter
+
+<pre>
+<code class="ruby">
+(1..10).select {|i| i % 2 == 0}
+[2, 4, 6, 8, 10]
+</code>
+</pre>
+
+<pre>
+<code class="clojure">
+(filter #(zero? (rem % 2)) (range 1 11))
+-> (2 4 6 8 10)
+</code>
+</pre>
+
+h1. map
+
+<pre>
+<code class="ruby">
+(1..10).map {|i| i * 2}
+=> [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+</code>
+</pre>
+
+<pre>
+<code class="clojure">
+(map #(* % 2) (range 1 11))
+(2 4 6 8 10 12 14 16 18 20)
+</code>
+</pre>
+
+h1. inject / reduce
+
+<pre>
+<code class="ruby">
+(1..10).inject {|acc,i| acc + i}
+=> 55
+</code>
+</pre>
+
+<pre>
+<code class="clojure">
+(reduce + (range 1 11))
+55
+</code>
+</pre>
+
+h1. Higher-Order Functions
+
+<pre>
+<code class="ruby">
+def make_adder(x)
+  lambda {|i| x + i}
+end
+adder = make_adder(3)
+adder[4]
+=> 7
+</code>
+</pre>
+
+<pre>
+<code class="clojure">
+(defn make-adder [x] (fn [i] (+ i x)))
+#'user/make-adder
+-> (def adder (make-adder 3))
+#'user/adder
+-> (adder 4)
+7
+</code>
+</pre>
+
+h1. Function Arguments
+
+<h2 class="ruby-concept">Blocks</h2>
+
+<h2 class="clojure-concept">Anonymous Functions</h2>
+
+h1. Function Arguments
+
+<pre>
+<code class="ruby">
+doubler = lambda {|i| i * 2}
+doubler[5]
+=> 10
+</code>
+</pre>
+
+<pre>
+<code class="clojure">
+(let [doubler #(* % 2)] 
+  (doubler 5)
+)
+10
+-> (let [doubler (fn [i] (* i 2))]
+  (doubler 5))
+10
+</code>
+</pre>
+
+h1. Data Structures
+
+h1. Names
+
+<h2 class="ruby-concept">Symbols</h2>
+
+<h2 class="clojure-concept">Symbols, Keywords</h2>
+
+h1. IFn
+
+h1. Multiple-Binding
+
+<h2 class="ruby-concept">Parallel Assignment</h2>
+
+<h2 class="clojure-concept">Destructuring</h2>
+
+h1. Metadata
+
+h1. The Sequence Library
+
+h1. Reduce
+
+h1. Sequence Comprehensions
+
+h1. Seq-ables
+
+h1. Lazy and Infinite
+
+h1. Realization
+
+h1. Functional Programming
+
+h1. Pure Functions
+
+h1. Referential Transparency
+
+h1. Immutability
+
+h1. Shared Structure
+
+h1. Recurrences
+
+h1. recur
+
+h1. Laziness
+
+h1. Memoization
+
+h1. Concurrency
+
+h1. Software Transactional Memory
+
+h1. Unified Update Model
+
+h1. Example: Snake Game
+
+h1. How do I do OO?
+
+h1. What is OO?
+
+* Encapsulation
+* Polymorphism
+* <span class="stricken">Inheritance</span>
+* Reuse
+
+h1. Macros
+
+h1. Java Interop
+
+h1. Interop Forms
+
+h1. Threading
+
+(Not the concurrency kind)
+
+h1. Ruby Inspired Libraries
+
+h1. Compojure
+
+h1. clj-record
+
+h1. Clojure's Strengths
+
+* Elegance Throughout
+* Sequence Library
+* Functional Programming
+* Concurrency Model
+* Macros
+* Java Interop
+
+h1. The Book
+
+[http://www.pragprog.com/titles/shcloj/programming-clojure](http://www.pragprog.com/titles/shcloj/programming-clojure)

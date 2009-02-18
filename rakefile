@@ -1,4 +1,18 @@
 desc "build the slideshow"
-task :default do
-  sh "slideshow -o build clojure-for-ruby-programmers.md"
+
+task :slideshow do
+  sh "slideshow -v -o build clojure-for-ruby-programmers.maruku"
 end
+
+task :cleanup_hack do
+  File.open("build/tmp.html", "w") do |outfile|
+    File.new("build/clojure-for-ruby-programmers.html").each_line do |line|
+      outfile << line.gsub(/^&lt;code(.*)&gt;$/, '<code\1>')
+    end
+  end
+  rm "build/clojure-for-ruby-programmers.html"
+  mv "build/tmp.html", "build/clojure-for-ruby-programmers.html"
+end
+
+task :default => [:slideshow, :cleanup_hack]
+
