@@ -111,7 +111,7 @@ h1. Function Arguments
 
 <h2 class="clojure-concept">Anonymous Functions</h2>
 
-h1. Function Arguments
+h1. Function Arguments Example
 
 <pre>
 <code class="ruby">
@@ -135,6 +135,31 @@ doubler[5]
 
 h1. Data Structures
 
+<table>
+  <thead>
+    <th colspan="2">Ruby</th>
+    <th colspan="2">Clojure</th>
+  </thead>
+  <tr>
+    <td>Array</td>
+    <td>[1, 2, 3]</td>
+    <td>vector</td>
+    <td>[1 2 3]</td>
+  </tr>
+  <tr>
+    <td>Hash</td>
+    <td>{:name => "Ruby", :creator => "Matz"}</td>
+    <td>map</td>
+    <td>{:name "Clojure" :creator "Hickey"}</td>
+  </tr>
+  <tr>
+    <td>Set</td>
+    <td>Set[1,2,3]</td>
+    <td>set</td>
+    <td>#{1 2 3}</td>
+  </tr>
+</table>
+  
 h1. Names
 
 <h2 class="ruby-concept">Symbols</h2>
@@ -143,19 +168,107 @@ h1. Names
 
 h1. IFn
 
-h1. Multiple-Binding
+h1. IFn Example: Maps
+
+<pre>
+<code class="clojure">
+(def lang {:name "Clojure" :creator "Hickey"})
+#'user/lang
+user=> (get lang :name)
+"Clojure"
+user=> (lang :name)
+"Clojure"
+user=> (:name lang)
+"Clojure"
+</code>
+</pre>
+
+h1. Multiple Binding 
 
 <h2 class="ruby-concept">Parallel Assignment</h2>
 
 <h2 class="clojure-concept">Destructuring</h2>
 
+h1. Multiple Binding Example 1
+
+<pre>
+<code class="ruby">
+x, y, z = [1, 2, 3]
+"x: #{x} y: #{y} z: #{z}"
+=> "x: 1 y: 2 z: 3"
+</code>
+</pre>
+
+<pre>
+<code class="clojure">
+(let [[x y z] [1 2 3]]
+(format "x: %d y: %d z: %d" x y z))
+"x: 1 y: 2 z: 3"
+</code>
+</pre>
+
+h1. Multiple Binding Example 2
+
+<pre>
+<code class="clojure">
+(let [[_ _ z :as point] [-14 11 21]]
+(format "z: %d in %d dimensions" z (count point)))
+"z: 21 in 3 dimensions"
+</code>
+</pre>
+
 h1. Metadata
+
+h1. Metdata on a Var
+
+<pre>
+<code class="clojure">
+-> #'format
+#'clojure.core/format
+-> ^#'format
+{:ns #<Namespace clojure.core>, 
+ :name format, 
+ :file "core.clj", 
+ :line 3341, 
+ :arglists ([fmt & args]), 
+ :tag java.lang.String, 
+ :doc "Formats a string using java.lang.String.format, see\
+java.util.Formatter for format\n  string syntax"}
+</code>
+</pre>
 
 h1. The Sequence Library
 
-h1. Reduce
+h1. What is a Sequence?
 
-h1. Sequence Comprehensions
+h1. first / rest / cons
+
+<pre> 
+<code class="clojure"> 
+(first [1 2 3])
+-> 1
+(rest [1 2 3])
+-> (2 3)
+(cons "hello" [1 2 3])
+-> ("hello" 1 2 3) 
+</code> </pre>
+
+h1. Sequence Library Examples
+
+h1. Sequence Comprehension
+
+h1. Sequence Comprehension Example
+
+<pre> 
+<code class="clojure">  
+(set! *print-length* 5)
+5
+(for [file "ABCDEFGH" rank (range 1 9)] (str file rank))
+-> ("A1" "A2" "A3" "A4" "A5" ...) 
+(for [i (iterate inc 0) :when (= 1 (rem i 2))] i)
+-> (1 3 5 7 9 ...)
+</code> 
+</pre>
 
 h1. Seq-ables
 
