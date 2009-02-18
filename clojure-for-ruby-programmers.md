@@ -5,6 +5,11 @@ h1. Clojure for Java Programmers
 
 h1. Why Clojure?
 
+<code class="clojure">
+(let [the stuff]
+  (print "foo"))
+</code>
+
 h1. Elegance
 
 h1. Sequence Library
@@ -19,8 +24,40 @@ h1. Quick Start
 
 h1. Interactive Environment 
 
-h2. irb
+<h2 class="ruby-concept">irb</h2>
 
-h2. REPL
+<h2 class="clojure-concept">REPL</h2>
+
+h1. Collections
+
+<h2 class="ruby-concept">Enumerable</h2>
+
+<h2 class="clojure-concept">Sequence</h2>
+
+h1. Higher-Order Functions
+
+h1. Function Arguments
+
+<h2 class="ruby-concept">Blocks</h2>
+
+<h2 class="clojure-concept">Anonymous Functions</h2>
+
+h1. Data Structures
+
+h1. Names
+
+<h2 class="ruby-concept">Symbols</h2>
+
+<h2 class="clojure-concept">Symbols, Keywords</h2>
+
+h1. IFn
+
+h1. Multiple-Binding
+
+<h2 class="ruby-concept">Parallel Assignment</h2>
+
+<h2 class="clojure-concept">Destructuring</h2>
+
+h1. Metadata
 
 
