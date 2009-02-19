@@ -65,56 +65,23 @@
 	<li>stuart halloway</li>
 	<li>stu@thinkrelevance.com</li>
 </ul>
-<div style="font-size: 50%;">
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Clojure for Ruby Programmers</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://github.com/stuarthalloway/clojure-for-ruby-programmers" property="cc:attributionName" rel="cc:attributionURL">Stuart Halloway</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</p>
-</div>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">why clojure?</h1>
+<h1 class="center">quick start</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">elegance</h1>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">sequence library</h1>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">functional programming</h1>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">concurrency</h1>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">java interop</h1>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">quick start</h1>
-
-
-</div><div class='slide'>
-
-<h1>interactive environment</h1>
+<h1 class="center">interactive environment</h1>
 <h2 class="ruby-fg">irb</h2>
 <h2 class="clojure-fg">REPL</h2>
 
 
 </div><div class='slide'>
 
-<h1>collections</h1>
+<h1 class="center">collections</h1>
 <h2 class="ruby-fg">enumerable</h2>
 <h2 class="clojure-fg">sequence</h2>
 
@@ -124,12 +91,12 @@
 <h1>select / filter</h1>
 <pre>
 <code class="ruby">(1..10).select {|i| i % 2 == 0}
-[2, 4, 6, 8, 10]
+=&gt; [2, 4, 6, 8, 10]
 </code>
 </pre>
 
 <pre>
-<code class="clojure">(filter #(zero? (rem % 2)) (range 1 11))
+<code class="clojure">(filter (fn [i] (zero? (rem i 2))) (range 1 11))
 -&gt; (2 4 6 8 10)
 </code>
 </pre>
@@ -137,7 +104,7 @@
 
 </div><div class='slide'>
 
-<h1>map</h1>
+<h1>map / map</h1>
 <pre>
 <code class="ruby">(1..10).map {|i| i * 2}
 =&gt; [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
@@ -146,7 +113,7 @@
 
 <pre>
 <code class="clojure">(map #(* % 2) (range 1 11))
-(2 4 6 8 10 12 14 16 18 20)
+-&gt; (2 4 6 8 10 12 14 16 18 20)
 </code>
 </pre>
 
@@ -162,7 +129,23 @@
 
 <pre>
 <code class="clojure">(reduce + (range 1 11))
-55
+-&gt; 55
+</code>
+</pre>
+
+
+</div><div class='slide'>
+
+<h1>infix vs. prefix</h1>
+<pre>
+<code class="ruby">1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10
+=&gt; 55
+</code>
+</pre>
+
+<pre>
+<code class="clojure">(apply + (range 11))
+-&gt; 55
 </code>
 </pre>
 
@@ -183,45 +166,50 @@ adder[4]
 
 <pre>
 <code class="clojure">(defn make-adder [x] (fn [i] (+ i x)))
-#'user/make-adder
+-&gt; #'user/make-adder
 
--&gt; (def adder (make-adder 3))
-#'user/adder
+(def adder (make-adder 3))
+-&gt; #'user/adder
 
--&gt; (adder 4)
-7
+(adder 4)
+-&gt; 7
 </code>
 </pre>
 
 
 </div><div class='slide'>
 
-<h1>function arguments</h1>
-<h2 class="ruby-fg">blocks</h2>
-<h2 class="clojure-fg">anonymous functions</h2>
+<h1 class="center">why clojure?</h1>
 
 
 </div><div class='slide'>
 
-<h1>function arguments example</h1>
-<pre>
-<code class="ruby">doubler = lambda {|i| i * 2}
-doubler[5]
-=&gt; 10
-</code>
-</pre>
+<h1 class="center">1. elegance</h1>
 
-<pre>
-<code class="clojure">(let [doubler #(* % 2)] 
-  (doubler 5)
-)
-10
 
--&gt; (let [doubler (fn [i] (* i 2))]
-  (doubler 5))
-10
-</code>
-</pre>
+</div><div class='slide'>
+
+<h1 class="center">2. sequence library</h1>
+
+
+</div><div class='slide'>
+
+<h1 class="center">3. functional programming</h1>
+
+
+</div><div class='slide'>
+
+<h1 class="center">4. concurrency</h1>
+
+
+</div><div class='slide'>
+
+<h1 class="center">5. macros</h1>
+
+
+</div><div class='slide'>
+
+<h1 class="center">6. java interop</h1>
 
 
 </div><div class='slide'>
@@ -255,7 +243,20 @@ doubler[5]
 
 </div><div class='slide'>
 
-<h1 class="alone">IFn</h1>
+<h1>comments are whitespace</h1>
+<pre>
+<code class="clojure">(= [1 2 3] [1, 2, 3])
+-&gt; true
+
+,(,=, [1,, 2 3] [1, 2, 3],,,,)
+-&gt; true
+</code>
+</pre>
+
+
+</div><div class='slide'>
+
+<h1 class="center">IFn</h1>
 
 
 </div><div class='slide'>
@@ -264,19 +265,22 @@ doubler[5]
 <pre>
 <code class="clojure">(def lang {:name "Clojure" :creator "Hickey"})
 #'user/lang
-user=&gt; (get lang :name)
-"Clojure"
-user=&gt; (lang :name)
-"Clojure"
-user=&gt; (:name lang)
-"Clojure"
+
+(get lang :name)
+-&gt; "Clojure"
+
+(lang :name)
+-&gt; "Clojure"
+
+(:name lang)
+-&gt; "Clojure"
 </code>
 </pre>
 
 
 </div><div class='slide'>
 
-<h1>multiple binding</h1>
+<h1 class="center">multiple binding</h1>
 <h2 class="ruby-fg">parallel assignment</h2>
 <h2 class="clojure-fg">destructuring</h2>
 
@@ -293,7 +297,7 @@ user=&gt; (:name lang)
 
 <pre>
 <code class="clojure">(let [[x y z] [1 2 3]]
-(format "x: %d y: %d z: %d" x y z))
+  (format "x: %d y: %d z: %d" x y z))
 -&gt; "x: 1 y: 2 z: 3"
 </code>
 </pre>
@@ -304,7 +308,7 @@ user=&gt; (:name lang)
 <h1>multiple binding example 2</h1>
 <pre>
 <code class="clojure">(let [[_ _ z :as point] [-14 11 21]]
-(format "z: %d in %d dimensions" z (count point)))
+  (format "z: %d in %d dimensions" z (count point)))
 -&gt; "z: 21 in 3 dimensions"
 </code>
 </pre>
@@ -312,7 +316,7 @@ user=&gt; (:name lang)
 
 </div><div class='slide'>
 
-<h1 class="alone">metadata</h1>
+<h1 class="center">metadata</h1>
 
 
 </div><div class='slide'>
@@ -337,12 +341,12 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">the sequence library</h1>
+<h1 class="center">2. sequence library</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">what is a sequence?</h1>
+<h1 class="center">what is a sequence?</h1>
 
 
 </div><div class='slide'>
@@ -373,25 +377,22 @@ java.util.Formatter for format\n  string syntax"}
 (cycle [1 2])
 -&gt; (1 2 1 2 1 ...)
 
-(interleave *1 "ABCDE")
--&gt; (1 \A 2 \B 1 ...)
+(interleave "ABCDE" (range 5))
+-&gt; (\A 0 \B 1 \C 2 \D 3 \E 4)
 </code> 
 </pre>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">sequence comprehension</h1>
+<h1 class="center">sequence comprehension</h1>
 
 
 </div><div class='slide'>
 
 <h1>sequence comprehension example</h1>
 <pre> 
-<code class="clojure">(set! *print-length* 5)
--&gt; 5
-
-(for [file "ABCDEFGH" rank (range 1 9)] (str file rank))
+<code class="clojure">(for [file "ABCDEFGH" rank (range 1 9)] (str file rank))
 -&gt; ("A1" "A2" "A3" "A4" "A5" ...) 
 
 (for [i (iterate inc 0) :when (= 1 (rem i 2))] i)
@@ -402,7 +403,7 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">seq-ables</h1>
+<h1 class="center">seq-ables</h1>
 
 
 </div><div class='slide'>
@@ -425,27 +426,37 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">functional programming</h1>
+<h1 class="center">3. functional programming</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">pure functions</h1>
+<h1 class="center">a. pure functions</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">referential transparency</h1>
+<h1 class="center">b. referential transparency</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">immutability</h1>
+<h1 class="center">c. immutability</h1>
 
 
 </div><div class='slide'>
 
-<h1>shared structure</h1>
+<h1 class="center">what about memory usage?!?</h1>
+
+
+</div><div class='slide'>
+
+<h1 class="center">d. shared structure</h1>
+
+
+</div><div class='slide'>
+
+<h1>shared structure example</h1>
 
 <pre> 
 <code class="clojure">(def a '(1 2))
@@ -460,12 +471,12 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">recurrences</h1>
+<h1>functional style</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">recur</h1>
+<h1 class="center">recur</h1>
 
 
 </div><div class='slide'>
@@ -487,7 +498,7 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">laziness</h1>
+<h1 class="center">laziness</h1>
 
 
 </div><div class='slide'>
@@ -513,7 +524,7 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">realization</h1>
+<h1 class="center">realization</h1>
 
 
 </div><div class='slide'>
@@ -521,14 +532,15 @@ java.util.Formatter for format\n  string syntax"}
 <h1>realization example</h1>
 <pre> 
 <code class="clojure">(drop 1000000000 (iterate inc 0))
-(1000000000 1000000001 1000000002 1000000003 1000000004 ...)
+; ...wait for it...
+-&gt; (1000000000 1000000001 1000000002 1000000003 1000000004 ...)
 </code> 
 </pre>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">memoization</h1>
+<h1 class="center">memoization</h1>
 
 
 </div><div class='slide'>
@@ -556,73 +568,12 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">concurrency</h1>
+<h1>game break!</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">software transactional memory</h1>
-
-
-</div><div class='slide'>
-
-<h1>STM example</h1>
-
-
-</div><div class='slide'>
-
-<h1>STM Benefits</h1>
-<ul>
-	<li>Compose atop pure functional code</li>
-	<li>Easy to use (compare locks!)</li>
-</ul>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">unified update model</h1>
-
-
-</div><div class='slide'>
-
-<h1>update functions</h1>
-<table>
-<thead>
-    <th>Update Mechanism</th>
-    <th>Refs</th>
-    <th>Atoms</th>
-    <th>Agents</th>
-</thead>
-<tr>
-    <td>pure function application</td>
-    <td><code>alter</code></td>
-    <td><code>swap!</code></td>
-    <td><code>send</code></td>
-</tr>
-<tr>
-    <td>pure function (commutative)</td>
-    <td><code>commute</code></td>
-    <td>N/A</td>
-    <td>N/A</td>
-</tr>
-<tr>
-    <td>pure function (blocking)</td>
-    <td>N/A</td>
-    <td>N/A</td>
-    <td><code>send-off</code></td>
-</tr>
-<tr>
-    <td>setter</td>
-    <td><code>ref-set</code></td>
-    <td><code>reset!</code></td>
-    <td>N/A</td>
-</tr>
-</table>
-
-
-</div><div class='slide'>
-
-<h1>example: snake game</h1>
+<h1>snake game</h1>
 <pre>
 <code class="clojure">
 ; Inspired by the snakes that have gone before:
@@ -766,12 +717,47 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1>example: lancet</h1>
+<h1 class="center">4. concurrency</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">how do I do OO?</h1>
+<h1 class="center">software transactional memory</h1>
+
+
+</div><div class='slide'>
+
+<h1>STM example</h1>
+<pre>
+<code class="clojure">; pure function
+(defn turn [snake newdir] 
+  (if newdir (assoc snake :dir newdir) snake))
+
+; compose mutability atop pure functions
+(defn update-direction [snake newdir]
+  (dosync (alter snake turn newdir)))
+</code>
+</pre>
+
+
+</div><div class='slide'>
+
+<h1>STM Benefits</h1>
+<ul>
+	<li>Compose atop pure functional code</li>
+	<li>Easy to use (compare locks!)</li>
+</ul>
+
+
+</div><div class='slide'>
+
+<h1 class="center">lots more to say</h1>
+<h2 class="center">(come to the concurrency talk)</h1>
+
+
+</div><div class='slide'>
+
+<h1 class="center">mapping OO concepts to FP</h1>
 
 
 </div><div class='slide'>
@@ -810,6 +796,11 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
+<h1 class="center">polymorphism is the flatland of multimethods</h1>
+
+
+</div><div class='slide'>
+
 <h1>multimethod example 1</h1>
 <ul>
 	<li>polymorphism</li>
@@ -833,11 +824,6 @@ java.util.Formatter for format\n  string syntax"}
   (.write *out* "&gt;"))
 </code>
 </pre>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">polymorphism is flatland!</h1>
 
 
 </div><div class='slide'>
@@ -890,33 +876,60 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">macros</h1>
+<h1 class="center">5. macros</h1>
+<h2 class="center">(come to the macro talk)</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">java interop</h1>
+<h1 class="center">6. java interop</h1>
 
 
 </div><div class='slide'>
 
 <h1>interop forms</h1>
+<table>
+<thead>
+    <th>java</th>
+    <th>clojure</th>
+    <th>sugared</th>
+</thead>
+<tr>
+    <td><code class="clojure">new Widget("red")</code></td> 
+    <td><code class="clojure">(new Widget "red")</code></td> 
+    <td><code class="clojure">(Widget. "red")</code></td> 
+</tr>
+<tr>
+    <td><code class="clojure">Math.PI</code></td> 
+    <td><code class="clojure">(. Math PI)</code></td> 
+    <td><code class="clojure">Math/PI</code></td> 
+</tr>
+<tr>
+    <td><code class="clojure">System.currentTimeMillis()</code></td> 
+    <td><code class="clojure">(. System currentTimeMillis)</code></td> 
+    <td><code class="clojure">(System/currentTimeMillis)</code></td> 
+</tr>
+<tr>
+    <td><code class="clojure">rnd.nextInt()</code></td> 
+    <td><code class="clojure">(. rnd nextInt)</code></td> 
+    <td><code class="clojure">(.nextInt rnd)</code></td> 
+</tr>
+<tr>
+    <td><code class="clojure">person.getAddress().getZipCode()</code></td> 
+    <td><code class="clojure">(. (. person getAddress) getZipCode)</code></td> 
+    <td><code class="clojure">(.. person getAddress getZipCode)</code></td> 
+</tr>
+</table>
 
 
 </div><div class='slide'>
 
-<h1>threading</h1>
-<p>(not the concurrency kind)</p>
+<h1 class="center">ruby inspired libraries</h1>
 
 
 </div><div class='slide'>
 
-<h1 class="alone">ruby inspired libraries</h1>
-
-
-</div><div class='slide'>
-
-<h1 class="alone">compojure</h1>
+<h1 class="center">compojure</h1>
 
 
 </div><div class='slide'>
@@ -957,7 +970,7 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone">clj-record</h1>
+<h1 class="center">clj-record</h1>
 
 
 </div><div class='slide'>
@@ -981,7 +994,7 @@ java.util.Formatter for format\n  string syntax"}
 
 <h1>clojure&#8217;s strengths</h1>
 <ul>
-	<li>elegance throughout</li>
+	<li>elegance</li>
 	<li>sequence library</li>
 	<li>functional programming</li>
 	<li>concurrency model</li>
@@ -992,7 +1005,7 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1 class="alone"><a href="http://www.pragprog.com/titles/shcloj">http://www.pragprog.com/titles/shcloj</a></h1>
+<h1 class="center"><a href="http://www.pragprog.com/titles/shcloj">http://www.pragprog.com/titles/shcloj</a></h1>
 <div style="width: 285px; margin-left: auto; margin-right: auto;">
 <img src="images/shcloj.jpg" width="285px"/>
 </div>

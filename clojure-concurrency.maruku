@@ -1,0 +1,44 @@
+title: clojure concurrency
+
+h1. clojure concurrency
+
+* stuart halloway
+* stu@thinkrelevance.com
+
+<h1 class="center">unified update model</h1>
+
+h1. update functions
+
+<table>
+  <thead>
+    <th>Update Mechanism</th>
+    <th>Refs</th>
+    <th>Atoms</th>
+    <th>Agents</th>
+  </thead>
+  <tr>
+    <td>pure function application</td>
+    <td><code>alter</code></td>
+    <td><code>swap!</code></td>
+    <td><code>send</code></td>
+  </tr>
+  <tr>
+    <td>pure function (commutative)</td>
+    <td><code>commute</code></td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>pure function (blocking)</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td><code>send-off</code></td>
+  </tr>
+  <tr>
+    <td>setter</td>
+    <td><code>ref-set</code></td>
+    <td><code>reset!</code></td>
+    <td>N/A</td>
+  </tr>
+</table>
+

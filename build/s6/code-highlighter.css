@@ -6,6 +6,13 @@
 .clojure .keyword { color: #c09; }
 .clojure .brackets { color: #006; }
 .clojure .curlybrackets { color: #906; }
+.clojure .specialvar { color: #da4949; }
+
+.ruby .comment { color: gray; }
+.ruby .string {	color: teal; }
+.ruby .symbol { color: #00c; }
+.ruby .keywords { color: #c09; }
+.ruby .brackets { color: #006; }
 
 .javascript .comment, .ruby .comment {
 	color : green;
