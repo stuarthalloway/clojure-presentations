@@ -4,6 +4,146 @@ h1. clojure concurrency
 
 * stuart halloway
 * stu@thinkrelevance.com
+* http://github.com/stuarthalloway/clojure-presentations
+
+h1. a tale of 5 concurrency models
+
+h1. 1. locking
+
+h1. 2. refs
+
+h1. 3. atoms
+
+h1. 4. agents
+
+h1. 5. dynamic vars
+
+h1. game break!
+
+<h1 class="center">1. locking</h1>
+
+<h1 class="center">2. references</h1>
+
+h1. ref and deref
+
+<pre>
+<code class="clojure">
+(def current-track (ref "Mars, the Bringer of War"))
+-> #'user/current-track   
+
+current-track
+-> #<Ref clojure.lang.Ref@6fe2479>    
+
+(deref current-track)
+-> "Mars, the Bringer of War"
+
+@current-track
+-> "Mars, the Bringer of War"    
+</code>
+</pre>
+
+h1. updates require a transaction
+
+<pre>
+<code class="clojure">
+(ref-set current-track "Venus, the Bringer of Peace")
+-> java.lang.IllegalStateException: No transaction running 
+</code>
+</pre>
+
+h1. dosync scopes a transaction
+
+<pre>
+<code class="clojure">
+(dosync (ref-set current-track "Venus, the Bringer of Peace"))
+"Venus, the Bringer of Peace"    
+</code>
+</pre>
+
+<h1 class="center">alter</h1>
+
+<pre>
+<code class="clojure">
+clojure.core/alter
+([ref fun & args])
+  Must be called in a transaction. Sets the in-transaction-value of
+  ref to:
+
+  (apply fun in-transaction-value-of-ref args)
+
+  and returns the in-transaction-value of ref.
+</code>
+</pre>
+
+h1. alter example
+
+<pre>
+<code class="clojure">
+(defstruct message :sender :text)
+(def messages (ref ()))
+
+(defn add-message [msg]
+  (dosync (alter messages conj msg)))
+</code>
+</pre>
+
+h1. ACID properties
+
+* atomic
+* consistent
+* isolated
+* durable
+
+<h1 class="center">clojure STM provides ACI (not D)</h1>
+
+h1. consistency via validators
+
+<pre>
+<code class="clojure">
+(defn validate-message-list [lst]
+  (if (not-every? #(and (:sender %) (:text %)) lst)
+    (throw (IllegalStateException. "Not a valid message"))
+    true))
+
+(def messages (ref () :validator validate-message-list))
+</code>
+</pre>
+
+h1. atomicity and isolation
+
+* (MVCC) multiversion concurrency control
+
+h1. how MVCC works
+
+* tx begins by taking a *point*
+* tx works against in-transaction-value
+* if another (post-point) tx write collides, retry
+* tx commit takes another point 
+
+h1. ref-set and alter cause collisions
+
+* what if you don't care about collisions?
+* your update must be *commutative*
+* use `commute` instead
+
+h1. commute example
+
+<pre>
+<code class="clojure">
+(defn add-message-commute [msg]
+  (dosync (commute messages conj msg)))
+</code>
+</pre>
+
+h1. prefer alter
+
+* `commute` is an optimization
+* `alter` will always work in place of `commute`
+* the reverse is *not* true!
+
+<h1 class="center">3. atoms</h1>
+
+<h1 class="center">4. agents</h1>
 
 <h1 class="center">unified update model</h1>
 
@@ -41,4 +181,6 @@ h1. update functions
     <td>N/A</td>
   </tr>
 </table>
+
+<h1 class="center">5. dynamic vars</h1>
 
