@@ -1,0 +1,49 @@
+@import url(s6/slides.css); /* required to make the slide show run at all */
+     
+html, body { color: black;
+             font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+a:link, a:visited { color: black; }
+
+h1 { font-size: 30pt; }
+h1.alone { text-align: center}
+
+h2 { font-size: 28pt;  }
+h3 { font-size: 25pt;  }
+p, li, td, th { font-size: 18pt; }
+
+pre { font-size: 16pt;  }
+
+pre.code { 
+  padding: 5px;
+  border: silver thick groove;
+}
+     
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+table td { 
+  padding: 0.5em;
+}
+table th { 
+  background-color: #eeeeee;
+  border: 1px solid gray;
+}
+td {
+  border: 1px solid gray;
+  padding: 0 0.5em;
+}
+
+div#header, div#footer {  color: silver; }
+
+.ruby-fg { color: #ac0f0f;}
+.clojure-fg { color: #3b5a96; }
+.ruby-bg { background-color: #da4949; }
+.clojure-bg { background-color: #90b4fe; }
+        
+.stricken { text-decoration: line-through; }
+    
+#currentSlide { color: silver;}
+
+#controls #navLinks a { color: silver; }
