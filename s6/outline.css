@@ -8,6 +8,7 @@
 #toggle { position: fixed; top: 0; right: 0; padding: 0.5em; }
 #toggle {border: 1px solid; border-width: 0 0 1px 1px; background: #FFF;}
 
+.print-only { display:none; }
 
 /* making the outline look pretty-ish */
 

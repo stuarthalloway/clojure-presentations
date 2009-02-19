@@ -5,7 +5,9 @@ html, body { color: black;
 
 a:link, a:visited { color: black; }
 
-h1 { font-size: 30pt;  }
+h1 { font-size: 30pt; }
+h1.alone { text-align: center}
+
 h2 { font-size: 28pt;  }
 h3 { font-size: 25pt;  }
 p, li, td, th { font-size: 18pt; }
@@ -17,17 +19,29 @@ pre.code {
   border: silver thick groove;
 }
      
-
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
 table td { 
   padding: 0.5em;
 }
 table th { 
-  color: #eeeeee;
+  background-color: #eeeeee;
+  border: 1px solid gray;
 }
+td {
+  border: 1px solid gray;
+  padding: 0 0.5em;
+}
+
 div#header, div#footer {  color: silver; }
 
-.ruby-concept { color: #ac0f0f;}
-.clojure-concept { color: #3b5a96; }
+.ruby-fg { color: #ac0f0f;}
+.clojure-fg { color: #3b5a96; }
+.ruby-bg { background-color: #da4949; }
+.clojure-bg { background-color: #90b4fe; }
+        
 .stricken { text-decoration: line-through; }
     
 #currentSlide { color: silver;}

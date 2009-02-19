@@ -18,4 +18,5 @@ s6/code-highlighter.js
 s6/ruby.js
 s6/clojure.js
 s6/javascript.js
+s6/images
 

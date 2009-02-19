@@ -7,12 +7,19 @@ end
 task :cleanup_hack do
   File.open("build/tmp.html", "w") do |outfile|
     File.new("build/clojure-for-ruby-programmers.html").each_line do |line|
-      outfile << line.gsub(/^&lt;code(.*)&gt;$/, '<code\1>')
+      outfile << line.gsub(/^&lt;code(.*)&gt;\s*$/, '<code\1>')
     end
   end
   rm "build/clojure-for-ruby-programmers.html"
   mv "build/tmp.html", "build/clojure-for-ruby-programmers.html"
 end
 
-task :default => [:slideshow, :cleanup_hack]
+task :images do
+  mkdir_p "build/images"
+  FileList['images/*.jpg'].each do |img|
+    cp img, "build/images"
+  end
+end
+
+task :default => [:slideshow, :cleanup_hack, :images]
 

@@ -1,39 +1,39 @@
-title: Clojure for Ruby Programmers
+title: clojure for ruby programmers
 
-h1. Clojure for Ruby Programmers
+h1. clojure for ruby programmers
 
-* Stuart Halloway
+* stuart halloway
 * stu@thinkrelevance.com
 
 <div style="font-size: 50%;">
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Clojure for Ruby Programmers</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://github.com/stuarthalloway/clojure-for-ruby-programmers" property="cc:attributionName" rel="cc:attributionURL">Stuart Halloway</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
 </div>
 
-h1. Why Clojure?
+<h1 class="alone">why clojure?</h1>
 
-h1. Elegance
+<h1 class="alone">elegance</h1>
 
-h1. Sequence Library
+<h1 class="alone">sequence library</h1>
 
-h1. Functional Programming
+<h1 class="alone">functional programming</h1>
 
-h1. Concurrency
+<h1 class="alone">concurrency</h1>
 
-h1. Java Interop
+<h1 class="alone">java interop</h1>
 
-h1. Quick Start
+<h1 class="alone">quick start</h1>
 
-h1. Interactive Environment 
+h1. interactive environment 
 
-<h2 class="ruby-concept">irb</h2>
+<h2 class="ruby-fg">irb</h2>
 
-<h2 class="clojure-concept">REPL</h2>
+<h2 class="clojure-fg">REPL</h2>
 
-h1. Collections
+h1. collections
 
-<h2 class="ruby-concept">Enumerable</h2>
+<h2 class="ruby-fg">enumerable</h2>
 
-<h2 class="clojure-concept">Sequence</h2>
+<h2 class="clojure-fg">sequence</h2>
 
 h1. select / filter
 
@@ -83,13 +83,14 @@ h1. inject / reduce
 </code>
 </pre>
 
-h1. Higher-Order Functions
+h1. higher-order functions
 
 <pre>
 <code class="ruby">
 def make_adder(x)
   lambda {|i| x + i}
 end
+
 adder = make_adder(3)
 adder[4]
 => 7
@@ -100,20 +101,22 @@ adder[4]
 <code class="clojure">
 (defn make-adder [x] (fn [i] (+ i x)))
 #'user/make-adder
+
 -> (def adder (make-adder 3))
 #'user/adder
+
 -> (adder 4)
 7
 </code>
 </pre>
 
-h1. Function Arguments
+h1. function arguments
 
-<h2 class="ruby-concept">Blocks</h2>
+<h2 class="ruby-fg">blocks</h2>
 
-<h2 class="clojure-concept">Anonymous Functions</h2>
+<h2 class="clojure-fg">anonymous functions</h2>
 
-h1. Function Arguments Example
+h1. function arguments example
 
 <pre>
 <code class="ruby">
@@ -129,48 +132,43 @@ doubler[5]
   (doubler 5)
 )
 10
+
 -> (let [doubler (fn [i] (* i 2))]
   (doubler 5))
 10
 </code>
 </pre>
 
-h1. Data Structures
+h1. data structures
 
 <table>
   <thead>
-    <th colspan="2">Ruby</th>
-    <th colspan="2">Clojure</th>
+    <th class="ruby-bg" colspan="2">ruby</th>
+    <th class="clojure-bg" colspan="2">clojure</th>
   </thead>
   <tr>
-    <td>Array</td>
-    <td>[1, 2, 3]</td>
+    <td>array</td>
+    <td><code language="ruby">[1, 2, 3]</code></td>
     <td>vector</td>
-    <td>[1 2 3]</td>
+    <td><code language="clojure">[1 2 3]</code></td>
   </tr>
   <tr>
-    <td>Hash</td>
-    <td>{:name => "Ruby", :creator => "Matz"}</td>
+    <td>hash</td>
+    <td><code class="ruby">{:name => "Ruby", :creator => "Matz"}</code></td>
     <td>map</td>
-    <td>{:name "Clojure" :creator "Hickey"}</td>
+    <td><code class="clojure">{:name "Clojure" :creator "Hickey"}</code></td>
   </tr>
   <tr>
-    <td>Set</td>
-    <td>Set[1,2,3]</td>
     <td>set</td>
-    <td>#{1 2 3}</td>
+    <td><code class="ruby">Set[1,2,3]</code></td>
+    <td>set</td>
+    <td><code class="clojure">#{1 2 3}</code></td>
   </tr>
 </table>
   
-h1. Names
+<h1 class="alone">IFn</h1>
 
-<h2 class="ruby-concept">Symbols</h2>
-
-<h2 class="clojure-concept">Symbols, Keywords</h2>
-
-h1. IFn
-
-h1. IFn Example: Maps
+h1. IFn example: maps
 
 <pre>
 <code class="clojure">
@@ -185,13 +183,13 @@ user=> (:name lang)
 </code>
 </pre>
 
-h1. Multiple Binding 
+h1. multiple binding 
 
-<h2 class="ruby-concept">Parallel Assignment</h2>
+<h2 class="ruby-fg">parallel assignment</h2>
 
-<h2 class="clojure-concept">Destructuring</h2>
+<h2 class="clojure-fg">destructuring</h2>
 
-h1. Multiple Binding Example 1
+h1. multiple binding example 1
 
 <pre>
 <code class="ruby">
@@ -205,28 +203,29 @@ x, y, z = [1, 2, 3]
 <code class="clojure">
 (let [[x y z] [1 2 3]]
 (format "x: %d y: %d z: %d" x y z))
-"x: 1 y: 2 z: 3"
+-> "x: 1 y: 2 z: 3"
 </code>
 </pre>
 
-h1. Multiple Binding Example 2
+h1. multiple binding example 2
 
 <pre>
 <code class="clojure">
 (let [[_ _ z :as point] [-14 11 21]]
 (format "z: %d in %d dimensions" z (count point)))
-"z: 21 in 3 dimensions"
+-> "z: 21 in 3 dimensions"
 </code>
 </pre>
 
-h1. Metadata
+<h1 class="alone">metadata</h1>
 
-h1. Metdata on a Var
+h1. metdata on a var
 
 <pre>
 <code class="clojure">
 -> #'format
 #'clojure.core/format
+
 -> ^#'format
 {:ns #<Namespace clojure.core>, 
  :name format, 
@@ -239,9 +238,9 @@ java.util.Formatter for format\n  string syntax"}
 </code>
 </pre>
 
-h1. The Sequence Library
+<h1 class="alone">the sequence library</h1>
 
-h1. What is a Sequence?
+<h1 class="alone">what is a sequence?</h1>
 
 h1. first / rest / cons
 
@@ -249,38 +248,59 @@ h1. first / rest / cons
 <code class="clojure">
 (first [1 2 3])
 -> 1
+
 (rest [1 2 3])
 -> (2 3)
+
 (cons "hello" [1 2 3])
 -> ("hello" 1 2 3) 
 </code> </pre>
 
-h1. Sequence Library Examples
+h1. sequence library examples
 
-h1. Sequence Comprehension
+<pre>
+<code class="clojure">
+(iterate inc 1)
+-> (1 2 3 4 5 ...)
 
-h1. Sequence Comprehension Example
+(repeat :foo)
+-> (:foo :foo :foo :foo :foo ...)
+
+(cycle [1 2])
+-> (1 2 1 2 1 ...)
+
+(interleave *1 "ABCDE")
+-> (1 \A 2 \B 1 ...)
+</code> 
+</pre>
+
+<h1 class="alone">sequence comprehension</h1>
+
+h1. sequence comprehension example
 
 <pre> 
 <code class="clojure">
 (set! *print-length* 5)
-5
+-> 5
+
 (for [file "ABCDEFGH" rank (range 1 9)] (str file rank))
 -> ("A1" "A2" "A3" "A4" "A5" ...) 
+
 (for [i (iterate inc 0) :when (= 1 (rem i 2))] i)
 -> (1 3 5 7 9 ...)
 </code> 
 </pre>
 
-h1. Seq-ables
+<h1 class="alone">seq-ables</h1>
 
-h1. Seq-able Examples
+h1. seq-able examples
 
 <pre> 
 <code class="clojure">
 (map #(.getName %) (.listFiles (java.io.File. ".")))
 -> (".git" "build" "clojure-for-ruby-programmers.maruku" 
     "footer.html.erb" "gradient.svg.erb" ...) 
+
 (line-seq (reader (java.io.File. "rakefile")))
 -> ("desc \"build the slideshow\"" 
      "" 
@@ -290,21 +310,33 @@ h1. Seq-able Examples
 </code> 
 </pre>
 
-h1. Functional Programming
+<h1 class="alone">functional programming</h1>
 
-h1. Pure Functions
+<h1 class="alone">pure functions</h1>
 
-h1. Referential Transparency
+<h1 class="alone">referential transparency</h1>
 
-h1. Immutability
+<h1 class="alone">immutability</h1>
 
-h1. Shared Structure
+<h1>shared structure</h1>
 
-h1. Recurrences
+<pre> 
+<code class="clojure">       
+(def a '(1 2))
+-> #'user/a
 
-h1. recur
+(def b (cons 0 a))
+-> #'user/b
+</code>
+</pre>
 
-h1. recur Example
+<img src="images/shared-structure.jpg"/>
+
+<h1 class="alone">recurrences</h1>
+
+<h1 class="alone">recur</h1>
+
+h1. recur example
 
 <pre> 
 <code class="clojure">
@@ -320,9 +352,9 @@ h1. recur Example
 </code> 
 </pre>
 
-h1. Laziness
+<h1 class="alone">laziness</h1>
 
-h1. Lazy Example
+<h1>laziness, circa jan 2009</h1>
 
 <pre>
 <code class="clojure">
@@ -333,17 +365,60 @@ h1. Lazy Example
 </code> 
 </pre>
 
-h1. Realization
+h1. laziness, feb 17, 2009
 
-h1. Memoization
+* <a href="http://groups.google.com/group/clojure/browse_frm/thread/ead08a78c5dbb9bd">Clojure is fully lazy!</a>
 
-h1. Concurrency
+<h1 class="alone">realization</h1>
 
-h1. Software Transactional Memory
+h1. realization example
 
-h1. Unified Update Model
+<pre> 
+<code class="clojure">
+(drop 1000000000 (iterate inc 0))
+; ...wait for it...
+-> (1000000000 1000000001 1000000002 1000000003 1000000004 ...)
+</code> 
+</pre>
 
-h1. Update Functions
+<h1 class="alone">memoization</h1>
+
+h1. memoization example
+
+<pre> 
+<code class="clojure"> 
+; Hofstadter's Male and Female Sequences from GEB
+; See http://en.wikipedia.org/wiki/Hofstadter_sequence
+(declare m f)
+(defn- m [n]
+  (if (= n 0)
+    0
+    (- n (f (m (dec n))))))
+
+(defn- f [n]		 
+  (if (= n 0)
+    1
+    (- n (m (f (dec n))))))
+
+(def m (memoize m))
+(def f (memoize f))
+</code>
+</pre>
+
+<h1 class="alone">concurrency</h1>
+
+<h1 class="alone">software transactional memory</h1>
+
+h1. STM example
+
+h1. STM Benefits
+
+* Compose atop pure functional code
+* Easy to use (compare locks!)
+
+<h1 class="alone">unified update model</h1>
+
+h1. update functions
 
 <table>
   <thead>
@@ -378,32 +453,264 @@ h1. Update Functions
   </tr>
 </table>
 
-h1. Example: Snake Game
+h1. example: snake game
 
-h1. How do I do OO?
+<pre>
+<code class="clojure">
 
-h1. What is OO?
+; Inspired by the snakes that have gone before:
+; Abhishek Reddy's snake: http://www.plt1.com/1070/even-smaller-snake/
+; Mark Volkmann's snake: http://www.ociweb.com/mark/programming/ClojureSnake.html 
+
+(ns examples.snake
+  (:import (java.awt Color Dimension) 
+	   (javax.swing JPanel JFrame Timer JOptionPane)
+           (java.awt.event ActionListener KeyListener))
+  (:use clojure.contrib.import-static
+	[clojure.contrib.seq-utils :only (includes?)]))
+(import-static java.awt.event.KeyEvent VK_LEFT VK_RIGHT VK_UP VK_DOWN)
+
+; ----------------------------------------------------------
+; functional model
+; ----------------------------------------------------------
+(def width 75)
+(def height 50)
+(def point-size 10)
+(def turn-millis 75)
+(def win-length 5)
+(def dirs { VK_LEFT  [-1  0] 
+            VK_RIGHT [ 1  0]
+            VK_UP    [ 0 -1] 
+	    VK_DOWN  [ 0  1]})
+
+(defn add-points [& pts] 
+  (vec (apply map + pts)))
+
+(defn point-to-screen-rect [pt] 
+  (map #(* point-size %) 
+       [(pt 0) (pt 1) 1 1]))
+
+(defn create-apple [] 
+  {:location [(rand-int width) (rand-int height)]
+   :color (Color. 210 50 90)
+   :type :apple}) 
+
+(defn create-snake []
+  {:body (list [1 1]) 
+   :dir [1 0]
+   :type :snake
+   :color (Color. 15 160 70)})
+
+(defn move [{:keys [body dir] :as snake} & grow]
+  (assoc snake :body (cons (add-points (first body) dir) 
+			   (if grow body (butlast body)))))
+
+(defn turn [snake newdir] 
+  (if newdir (assoc snake :dir newdir) snake))
+
+(defn win? [{body :body}]
+  (>= (count body) win-length))
+
+(defn head-overlaps-body? [{[head & body] :body}]
+  (includes? body head))
+
+(def lose? head-overlaps-body?)
+
+(defn eats? [{[snake-head] :body} {apple :location}]
+   (= snake-head apple))
+
+; ----------------------------------------------------------
+; mutable model
+; ----------------------------------------------------------
+(defn update-positions [snake apple]
+  (dosync
+   (if (eats? @snake @apple)
+     (do (ref-set apple (create-apple))
+	 (alter snake move :grow))
+     (alter snake move)))
+  nil)
+
+(defn update-direction [snake newdir]
+  (dosync (alter snake turn newdir)))
+
+(defn reset-game [snake apple]
+  (dosync (ref-set apple (create-apple))
+	  (ref-set snake (create-snake)))
+  nil)
+
+; ----------------------------------------------------------
+; gui
+; ----------------------------------------------------------
+(defn fill-point [g pt color] 
+  (let [[x y width height] (point-to-screen-rect pt)]
+    (.setColor g color) 
+    (.fillRect g x y width height)))
+
+(defmulti paint (fn [g object & _] (:type object)))
+
+(defmethod paint :apple [g {:keys [location color]}] 
+  (fill-point g location color))
+
+(defmethod paint :snake [g {:keys [body color]}] 
+  (doseq [point body]
+    (fill-point g point color)))
+
+(defn game-panel [frame snake apple]
+  (proxy [JPanel ActionListener KeyListener] []
+    (paintComponent [g] 
+      (proxy-super paintComponent g)
+      (paint g @snake)
+      (paint g @apple))
+    (actionPerformed [e] 
+      (update-positions snake apple)
+      (when (lose? @snake)
+	(reset-game snake apple)
+	(JOptionPane/showMessageDialog frame "You lose!"))
+      (when (win? @snake)
+	(reset-game snake apple)
+	(JOptionPane/showMessageDialog frame "You win!"))
+      (.repaint this))
+    (keyPressed [e] 
+      (update-direction snake (dirs (.getKeyCode e))))
+    (getPreferredSize [] 
+      (Dimension. (* (inc width) point-size) 
+		  (* (inc height) point-size)))
+    (keyReleased [e])
+    (keyTyped [e])))
+
+(defn game [] 
+  (let [snake (ref (create-snake)) 
+	apple (ref (create-apple))
+	frame (JFrame. "Snake")
+	panel (game-panel frame snake apple)
+	timer (Timer. turn-millis panel)]
+    (doto panel
+      (.setFocusable true)
+      (.addKeyListener panel))
+    (doto frame
+      (.add panel)
+      (.pack)
+      (.setVisible true))
+    (.start timer) 
+    [snake, apple, timer]))
+</code>
+</pre>
+
+h1. example: lancet
+
+<h1 class="alone">how do I do OO?</h1>
+
+h1. what is OO?
 
 * Encapsulation
 * Polymorphism
 * <span class="stricken">Inheritance</span>
 * Reuse
 
-h1. Macros
+h1. encapsulation example
 
-h1. Java Interop
+<pre> 
+<code class="clojure"> 
+(defn game [] 
+  (let [snake (ref (create-snake)) 
+	apple (ref (create-apple))
+	frame (JFrame. "Snake")
+	panel (game-panel frame snake apple)
+	timer (Timer. turn-millis panel)]
+    (doto panel
+      (.setFocusable true)
+      (.addKeyListener panel))
+    (doto frame
+      (.add panel)
+      (.pack)
+      (.setVisible true))
+    (.start timer) 
+    [snake, apple, timer]))
+</code>
+</pre>
 
-h1. Interop Forms
+h1. multimethod example 1
 
-h1. Threading
+* polymorphism
 
-(Not the concurrency kind)
+<pre>
+<code class="clojure">
+; vastly simplified from Clojure's own print mechanism
+(defmulti my-print class)
 
-h1. Ruby Inspired Libraries
+(defmethod my-print String [s]
+  (.write *out* s))
 
-h1. Compojure
+(defmethod my-print nil [s]
+  (.write *out* "nil"))
 
-h1. Compojure Example: Servlet
+(defmethod my-print Number [n]
+  (.write *out* (.toString n)))
+
+(defmethod my-print :default [s]
+  (.write *out* "#<")
+  (.write *out* (.toString s))
+  (.write *out* ">"))
+</code>
+</pre>
+
+<h1 class="alone">polymorphism is flatland!</h1>
+
+h1. multimethod example 2
+
+* dispatch on multiple facets of a single object
+
+<pre>
+<code class="clojure">
+(derive ::Savings ::Account)
+(derive ::Checking ::Account)
+
+(defmulti service-charge (fn [acct] [(account-level acct) (:tag acct)]))
+(defmethod service-charge [::Basic ::Checking]   [_] 25)
+(defmethod service-charge [::Basic ::Savings]    [_] 10)
+(defmethod service-charge [::Premium ::Account] [_] 0)
+</code>
+</pre>
+
+h1. multimethod example 3
+
+* dispatch on multiple objects
+
+<pre>
+<code class="clojure">
+(defmulti coerce 
+  (fn [dest-class src-inst] [dest-class (class src-inst)]))
+
+(defmethod coerce [java.io.File String] [_ str] 
+  (java.io.File. str))
+
+(defmethod coerce [Boolean/TYPE String] [_ str]
+  (contains? #{"on" "yes" "true"} (.toLowerCase str)))
+
+(defmethod coerce :default [dest-cls obj] (cast dest-cls obj))
+</code>
+</pre>
+
+h1. reuse example?
+
+* Everything!
+* Try to find a reuse *counterexample*!
+
+<h1 class="alone">macros</h1>
+
+<h1 class="alone">java interop</h1>
+
+h1. interop forms
+
+h1. threading
+
+(not the concurrency kind)
+
+<h1 class="alone">ruby inspired libraries</h1>
+
+<h1 class="alone">compojure</h1>
+
+h1. compojure example: servlet
 
 <pre>
 <code class="clojure">
@@ -420,7 +727,7 @@ h1. Compojure Example: Servlet
 </pre>
 
 
-h1. Compojure Example. Handlers
+h1. compojure example: handlers
 
 <pre>
 <code class="clojure">
@@ -438,7 +745,9 @@ h1. Compojure Example. Handlers
 </code> 
 </pre>
 
-h1. clj-record
+<h1 class="alone">clj-record</h1>
+
+h1. clj-record example
 
 <pre>
 <code class="clojure">
@@ -454,15 +763,19 @@ h1. clj-record
 </code> 
 </pre>
 
-h1. Clojure's Strengths
+h1. clojure's strengths
 
-* Elegance Throughout
-* Sequence Library
-* Functional Programming
-* Concurrency Model
-* Macros
-* Java Interop
+* elegance throughout
+* sequence library
+* functional programming
+* concurrency model
+* macros
+* java interop
 
-h1. The Book
+<h1 class="alone"><a href="http://www.pragprog.com/titles/shcloj">http://www.pragprog.com/titles/shcloj</a></h1>
 
-<a href="http://www.pragprog.com/titles/shcloj/programming-clojure">http://www.pragprog.com/titles/shcloj/programming-clojure</a>
+<div style="width: 285px; margin-left: auto; margin-right: auto;">
+  <img src="images/shcloj.jpg" width="285px"/>
+</div>
+
+
