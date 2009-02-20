@@ -6,13 +6,15 @@ task :slideshow do
 end
 
 task :cleanup_hack do
-  File.open("build/tmp.html", "w") do |outfile|
-    File.new("build/clojure-for-ruby-programmers.html").each_line do |line|
-      outfile << line.gsub(/^&lt;code(.*)&gt;\s*$/, '<code\1>')
-    end
+  %w{clojure-for-ruby-programmers clojure-concurrency}.each do |pres|
+    File.open("build/tmp.html", "w") do |outfile|
+      File.new("build/#{pres}.html").each_line do |line|
+        outfile << line.gsub(/^&lt;code(.*)&gt;\s*$/, '<code\1>')
+      end	
+    end	
+    rm "build/#{pres}.html"
+    mv "build/tmp.html", "build/#{pres}.html"
   end
-  rm "build/clojure-for-ruby-programmers.html"
-  mv "build/tmp.html", "build/clojure-for-ruby-programmers.html"
 end
 
 task :images do

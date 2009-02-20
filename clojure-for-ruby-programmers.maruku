@@ -334,7 +334,7 @@ h1. seq-able examples
 
 <img src="images/shared-structure.jpg"/>
 
-h1. functional style
+<h1 class="center">functional style</h1>
 
 <h1 class="center">recur</h1>
 
@@ -784,7 +784,7 @@ h1. clojure's strengths
 * macros
 * java interop
 
-<h1 class="center"><a href="http://www.pragprog.com/titles/shcloj">http://www.pragprog.com/titles/shcloj</a></h1>
+<h1 class="center" style="font-size: 30pt;"><a href="http://www.pragprog.com/titles/shcloj">http://www.pragprog.com/titles/shcloj</a></h1>
 
 <div style="width: 285px; margin-left: auto; margin-right: auto;">
   <img src="images/shcloj.jpg" width="285px"/>

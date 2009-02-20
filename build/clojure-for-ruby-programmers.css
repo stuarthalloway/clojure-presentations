@@ -8,6 +8,8 @@ a:link, a:visited { color: black; }
 h1 { font-size: 30pt; }
 .center { text-align: center}
 
+h1.center {  font-size: 60pt;}
+
 h2 { font-size: 28pt;  }
 h3 { font-size: 25pt;  }
 p, li, td, th { font-size: 18pt; }
