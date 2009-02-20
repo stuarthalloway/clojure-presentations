@@ -14,7 +14,7 @@ h2 { font-size: 28pt;  }
 h3 { font-size: 25pt;  }
 p, li, td, th { font-size: 18pt; }
 
-pre { font-size: 16pt; }
+pre { font-size: 16pt; font-weight: bold; }
 
 pre.code { 
   padding: 5px;

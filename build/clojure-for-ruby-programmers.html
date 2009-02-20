@@ -888,36 +888,75 @@ java.util.Formatter for format\n  string syntax"}
 
 </div><div class='slide'>
 
-<h1>interop forms</h1>
+<h1>java new</h1>
 <table>
-<thead>
-    <th>java</th>
-    <th>clojure</th>
-    <th>sugared</th>
-</thead>
 <tr>
+    <td>java</td>
     <td><code class="clojure">new Widget("red")</code></td> 
+</tr>
+<tr>
+    <td>clojure</td>
     <td><code class="clojure">(new Widget "red")</code></td> 
+</tr>
+<tr>
+    <td>sugared</td>
     <td><code class="clojure">(Widget. "red")</code></td> 
 </tr>
+</table>
+
+
+</div><div class='slide'>
+
+<h1>static member access</h1>
+<table>
 <tr>
+    <td>java</td>
     <td><code class="clojure">Math.PI</code></td> 
+</tr>
+<tr>
+    <td>clojure</td>
     <td><code class="clojure">(. Math PI)</code></td> 
+</tr>
+<tr>
+    <td>sugared</td>
     <td><code class="clojure">Math/PI</code></td> 
 </tr>
+</table>
+
+
+</div><div class='slide'>
+
+<h1>instance member access</h1>
+<table>
 <tr>
-    <td><code class="clojure">System.currentTimeMillis()</code></td> 
-    <td><code class="clojure">(. System currentTimeMillis)</code></td> 
-    <td><code class="clojure">(System/currentTimeMillis)</code></td> 
+    <td>java</td>
+    <td><code class="clojure">rnd.nextInt()</code></td> 
 </tr>
 <tr>
-    <td><code class="clojure">rnd.nextInt()</code></td> 
+    <td>clojure</td>
     <td><code class="clojure">(. rnd nextInt)</code></td> 
+</tr>
+<tr>
+    <td>sugared</td>
     <td><code class="clojure">(.nextInt rnd)</code></td> 
 </tr>
+</table>
+
+
+</div><div class='slide'>
+
+<h1>chaining access</h1>
+<table>
 <tr>
+    <td>java</td>
     <td><code class="clojure">person.getAddress().getZipCode()</code></td> 
+</tr>
+<tr>
+    <td>clojure</td>
     <td><code class="clojure">(. (. person getAddress) getZipCode)</code></td> 
+</tr>
+<tr>
+    <td>sugared</td>
     <td><code class="clojure">(.. person getAddress getZipCode)</code></td> 
 </tr>
 </table>

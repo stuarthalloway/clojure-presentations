@@ -1,8 +1,8 @@
 desc "build the slideshow"
 
 task :slideshow do
-  sh "slideshow -v -o build clojure-for-ruby-programmers.maruku"
-  sh "slideshow -v -o build clojure-concurrency.maruku"
+  sh "slideshow -o build clojure-for-ruby-programmers.maruku"
+  sh "slideshow -o build clojure-concurrency.maruku"
 end
 
 task :cleanup_hack do

@@ -683,39 +683,72 @@ h1. reuse example?
 
 <h1 class="center">6. java interop</h1>
 
-h1. interop forms
+h1. java new
 
 <table>
-  <thead>
-    <th>java</th>
-    <th>clojure</th>
-    <th>sugared</th>
-  </thead>
   <tr> 
+    <td>java</td>
     <td><code class="clojure">new Widget("red")</code></td> 
+  </tr>
+  <tr> 
+    <td>clojure</td>
     <td><code class="clojure">(new Widget "red")</code></td> 
+  </tr>
+  <tr> 
+    <td>sugared</td>
     <td><code class="clojure">(Widget. "red")</code></td> 
-  </tr> 
+  </tr>
+</table>
+
+h1. static member access
+
+<table>
   <tr> 
+    <td>java</td>
     <td><code class="clojure">Math.PI</code></td> 
+  </tr>
+  <tr> 
+    <td>clojure</td>
     <td><code class="clojure">(. Math PI)</code></td> 
+  </tr>
+  <tr> 
+    <td>sugared</td>
     <td><code class="clojure">Math/PI</code></td> 
-  </tr> 
+  </tr>
+</table>
+
+h1. instance member access
+
+<table>
   <tr> 
-    <td><code class="clojure">System.currentTimeMillis()</code></td> 
-    <td><code class="clojure">(. System currentTimeMillis)</code></td> 
-    <td><code class="clojure">(System/currentTimeMillis)</code></td> 
-  </tr> 
-  <tr> 
+    <td>java</td>
     <td><code class="clojure">rnd.nextInt()</code></td> 
-    <td><code class="clojure">(. rnd nextInt)</code></td> 
-    <td><code class="clojure">(.nextInt rnd)</code></td> 
-  </tr> 
+  </tr>
   <tr> 
+    <td>clojure</td>
+    <td><code class="clojure">(. rnd nextInt)</code></td> 
+  </tr>
+  <tr> 
+    <td>sugared</td>
+    <td><code class="clojure">(.nextInt rnd)</code></td> 
+  </tr>
+</table>
+
+h1. chaining access
+
+<table>
+  <tr> 
+    <td>java</td>
     <td><code class="clojure">person.getAddress().getZipCode()</code></td> 
+  </tr>
+  <tr> 
+    <td>clojure</td>
     <td><code class="clojure">(. (. person getAddress) getZipCode)</code></td> 
+  </tr>
+  <tr> 
+    <td>sugared</td>
     <td><code class="clojure">(.. person getAddress getZipCode)</code></td> 
-  </tr> 
+  </tr>
 </table>
 
 <h1 class="center">ruby inspired libraries</h1>
