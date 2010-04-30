@@ -1,0 +1,18 @@
+# Introduction to Functional Programming with Clojure
+
+Functional programming has many advantages. For starters:
+
+* Pure functions have no dependence on context, so they are easy to write, easy to test, easy to read. Most importantly, they are easy to combine.
+* Referential transparency makes substitution, caching, and lazy evaluation possible -- and simple. 
+* Careful abstraction makes functions broadly reusable, in contrast with OO 'concretion' which aspires to encapsulation but mostly just protects your data from being reused.
+
+To take full advantage of FP you have to think differently. In this session, you will learn how to reap the benefits above, by:
+
+* Programming with immutable values
+* Sharing data between persistent data structures
+* Recursing instead of looping
+* Using map, reduce, and into
+* Composing functions from the sequence library
+* Paying as you go with lazy data structures
+
+Examples will be in Clojure, and will include a set of hands-on exercises to take home.
