@@ -1,0 +1,11 @@
+# Data Analysis with Incanter
+
+Incanter is a Clojure-based, R-like platform for statistical computing and graphics. In this session you will learn:
+
+* The basics of manipulating data via Incanter datasets
+* Charting your data: how Incanter makes JFreeChart easier than ever before
+* A quick tour of the many libraries provided (or wrapped) by Incanter.
+
+Incanter can bring quants and devs together like never before, by providing the power of quant tools in a production-ready language and VM environment (Clojure on the JVM).
+
+Examples will include hands-on exercises for you to take home.

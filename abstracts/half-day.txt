@@ -1,0 +1,11 @@
+# A Half-Day of Clojure
+
+In recent years, the Java community has embraced a variety of new languages that target the JVM, but also offer productivity advantages over traditional Java coding. In this half-day session you will explore Clojure, a language with many compelling features;
+
+* Clojure provides all the low-ceremony goodness you know and love from dynamic languages such as Ruby and Python.
+* Clojure's sequence library turns the tables on OO, providing a powerful set of verbs that can work with a small, standard set of nouns.
+* Clojure is a Lisp and gracefully supports Lisp's signature feature: code as data.
+* Clojure's functional style and support for software transactional memory make it an appealing option for taking advantage of massively parallel hardware.
+* Clojure's datatypes and protocols generalize the best idea in OO (interfaces) to handle the expression problem. Say goodbye to wrappers, mixins, adapters, and monkey-patches.
+
+Examples will include hands-on exercises during the session, and more for you to take home.

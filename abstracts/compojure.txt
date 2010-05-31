@@ -1,0 +1,12 @@
+# Intro to Web Development with Compojure
+
+Compojure is a web framework, inspired by Sinatra and implemented in Clojure. In this session, you will learn:
+
+* Why functional languages are a good fit for web development. (It's simple, really: a web endpoint is a function of URLs, headers, bodies, and sessions. Everything else is noise and distraction.)
+* How function composition simplifies adding services. Compojure middlewares are simply functions that can wrap existing functions to add additional services.
+* The usual suspects: APIs for dealing with headers, bodies, sessions, cookies, etc.
+* How Compojure is embedded in traditional Java servlet environments: "It's just a jar!"
+* A variety of approaches to rendering views: JSP-like templating, using Clojure data structures as a natural DSL, and using the functional Enlive library.
+* Integrating with data stores, both relational and NoSQL.
+
+The examples will include hands-on exercises that you can take home.

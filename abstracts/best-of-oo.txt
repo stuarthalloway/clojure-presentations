@@ -1,0 +1,14 @@
+# The Best of OO: Clojure Types and Protocols
+
+The best abstraction in OO is the interface: a pure specification that can
+the be implemented polymorphically by many different
+callees. Clojure's types and protocols generalize this idea to solve
+the expression problem. In this session you will learn:
+
+* What the expression problem is.
+* How the expression problem hurts your code every day, through wrappers, mixins, adapters, facades, open classes, and monkey patches.
+* How protocols solve the expression problem.
+* Ease of use matters: using protocols and types are as simple as classes and interfaces.
+* Performance matters too: protocols take advantage of the host environment's support for fast polymorphic dispatch.  
+
+Examples will include hands-on exercises for you to take home.
