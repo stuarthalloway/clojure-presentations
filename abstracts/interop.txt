@@ -1,0 +1,18 @@
+# Clojure/Java Interop: A Better Java than Java
+
+Clojure's approach to Java interop achieves four goals: It
+
+* is easier to use than Java itself
+* provides access to the best possible JVM performance when you need it
+* has fidelity to Java semantics
+* encourages a style of programming that uses the good parts of Java
+
+In this talk you will learn how Clojure achieves these objectives, and how to use Clojure effectively in a mixed-language environment. You will see:
+
+* calling Java from Clojure, and Clojure from Java
+* using macros such as doto to eliminate boilerplate code
+* why you want protocols, not interfaces
+* keeping your data out of walled gardens: records vs. classes
+* working with legacy code: genclass, proxy, and annotations
+* using type hinting for "pay as you go" performance tuning
+* how to deal with the primitive/Object divide
